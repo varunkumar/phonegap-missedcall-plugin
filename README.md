@@ -10,13 +10,10 @@ Adding the plugin to project
 - Include a reference to your JS file in your index.html. (This must be done after including cordova.js)
 - Copy the Java files to your platform's src folder. 
 - Add reference to the plugin in platform/android/res/xml/config.xml
-```xml
-<plugin name="MissedCallPlugin" value="org.apache.cordova.plugin.MissedCallPlugin"/>
-```
+```<plugin name="MissedCallPlugin" value="org.apache.cordova.plugin.MissedCallPlugin"/>```
 - Ensure that the manifest file contains necessary permissions for reading the state of the phone and the call logs. 
-```xml
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-permission android:name="android.permission.READ_CALL_LOG" />
+```<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.READ_CALL_LOG" />
 ```
 
 Using the plugin
