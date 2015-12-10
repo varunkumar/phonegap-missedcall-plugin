@@ -1,4 +1,3 @@
-cordova.define("cordova/plugin/missedcallplugin", function(require, exports, module) {
   var exec = require('cordova/exec');
   
   var MissedCallPlugin = function() {};
@@ -11,6 +10,4 @@ cordova.define("cordova/plugin/missedcallplugin", function(require, exports, mod
     return exec(successCallback, failureCallback, 'MissedCallPlugin', 'StopReception', []);
   }
 
-  var missedcallplugin = new MissedCallPlugin();
-  module.exports = missedcallplugin;
-});
+  module.exports = new MissedCallPlugin();
