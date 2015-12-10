@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android" 
+           id="cordova.plugin.MissedCall"
+      version="1.0.0">
+    <name>MissedCall</name>
+    
+    <license>MIT</license>
+    
+    <description>
+        This plugin gives you the ability to get and set the screen brightness.
+    </description>
+    
+    <js-module src="www/MissedCallPlugin.js" name="MissedCall">
+        <clobbers target="cordova.plugins.missedcall" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MissedCallPlugin">
+                <param name="android-package" value="org.apache.cordova.plugin.MissedCall.MissedCallPlugin"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_CALL_LOG" />
+        </config-file>
+
+        <source-file src="src/android/MissedCallPlugin.java" target-dir="src/org/apache/cordova/plugin/MissedCall" />
+        <source-file src="src/android/MissedCallReceiver.java" target-dir="src/org/apache/cordova/plugin/MissedCall" />
+      
+     </platform>
+          
+</plugin> 
