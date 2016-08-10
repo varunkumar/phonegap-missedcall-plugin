@@ -11,6 +11,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import java.lang.Thread;
+import java.lang.InterruptedException;
+
 public class MissedCallReceiver extends BroadcastReceiver {
     
     private CallbackContext callback_receive;
@@ -24,7 +27,11 @@ public class MissedCallReceiver extends BroadcastReceiver {
         String state = bundle.getString("state");
         JSONObject result = new JSONObject();
         if (prevCallState.equals("RINGING") && state.equals("IDLE")) {
-
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
             Cursor cursor = context.getContentResolver().query(
                     android.provider.CallLog.Calls.CONTENT_URI, null, null,
                     null, android.provider.CallLog.Calls.DATE + " DESC ");
